@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xml" href='style.xls'?>
+<Servers>
+    <Server Label="studio.signio.pl">
+            <Name>Studio</Name>
+            <DomainName>studio.signio.pl</DomainName>
+            <Ip>51.83.237.85</Ip>
+    </Server>
+    <Server Label="euro.signio.pl">
+            <Name>Euro</Name>
+            <DomainName>euro.signio.pl</DomainName>
+            <Ip>213.77.77.115</Ip>
+    </Server>
+    <Server Label="hebe.signio.pl">
+            <Name>Hebe</Name>
+            <DomainName>hebe.signio.pl</DomainName>
+            <Ip>51.83.237.84</Ip>
+    </Server>
+    <Server Label="orange.signio.pl">
+            <Name>Orange</Name>
+            <DomainName>orange.signio.pl</DomainName>
+            <Ip>80.51.2.170</Ip>
+    </Server>
+    <Server Label="retail.signio.pl">
+            <Name>Retail</Name>
+            <DomainName>retail.signio.pl</DomainName>
+            <Ip>89.161.253.116</Ip>
+    </Server>
+    <Server Label="sixthstreet.signio.pl">
+            <Name>Sixthstreet</Name>
+            <DomainName>sixthstreet.signio.pl</DomainName>
+            <Ip>193.70.125.195</Ip>
+    </Server>
+            <Server Label="dpd.signio.pl">
+            <Name>Dpd</Name>
+            <DomainName>dpd.signio.pl</DomainName>
+            <Ip>54.38.128.219</Ip>
+    </Server>
+</Servers>
