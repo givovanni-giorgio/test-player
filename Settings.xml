@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xls' href='style.xls'?>
+<Player>
+		<Servers>
+				<Server Label="studio.signio.pl">
+						<Name>studio.signio.pl</Name>
+						<Ip>51.83.237.85</Ip>
+				</Server>
+				<Server Label="euro.signio.pl">
+						<Name>euro.signio.pl</Name>
+						<Ip>213.77.77.115</Ip>
+				</Server>
+				<Server Label="hebe.signio.pl">
+						<Name>hebe.signio.pl</Name>
+						<Ip>51.83.237.84</Ip>
+				</Server>
+				<Server Label="orange.signio.pl">
+						<Name>orange.signio.pl</Name>
+						<Ip>89.161.253.116</Ip>
+				</Server>
+				<Server Label="retail.signio.pl">
+						<Name>retail.signio.pl</Name>
+						<Ip>89.161.253.116</Ip>
+				</Server>
+				<Server Label="sixthstreet.signio.pl">
+						<Name>sixthstreet.signio.pl</Name>
+						<Ip>193.70.125.195</Ip>
+				</Server>
+		</Servers>
+		<Disks>
+				<Disk Label="WDC PC SN720 SDAQNTW-512G-1001">
+						<Name>WDC PC SN720 SDAQNTW-512G-1001</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Disk>
+				<Disk Label="USB Flash DISK">
+						<Name>USB Flash DISK</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Disk>
+		</Disks>
+		<Volumes>
+				<Volume Label="F">
+						<Name>F</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+				<Volume Label="D">
+						<Name>D</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+				<Volume Label="">
+						<Name />
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+				<Volume Label="C">
+						<Name>C</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+		</Volumes>
+		<TeamViewer>
+				<Installer>
+						<Name>TeamViewer</Name>
+						<Status>Running</Status>
+						<StartUPType>Automatic</StartUPType>
+				</Installer>
+				<TeamViewerPath>
+						<Path>TeamViewerActivator.exe</Path>
+				</TeamViewerPath>
+		</TeamViewer>
+</Player>

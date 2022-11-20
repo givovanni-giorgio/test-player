@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xml" href='style.xls'?>
+<Player>
+    <Services>
+        <Service Label="NMF.Service">
+                <Name>NMF.Service</Name>
+                <Status>Running</Status>
+                <StartupType>Automatic</StartupType>
+        </Service>
+        <Service Label="NMF.Locker">
+                <Name>NMF.Locker</Name>
+                <Status>Running</Status>
+                <StartupType>Automatic</StartupType>
+        </Service>
+        <Service Label="SignioClientService">
+                <Name>SignioClientService</Name>
+                <Status>Stopped</Status>
+                <StartupType>Disabled</StartupType>
+        </Service>
+        <Service Label="wuauserv">
+                <Name>wuauserv</Name>
+                <Status>Stopped</Status>
+                <StartupType>Disabled</StartupType>
+        </Service>
+        <Service Label="TabletInputService">
+                <Name>TabletInputService</Name>
+                <Status>Stopped</Status>
+                <StartupType>Disabled</StartupType>
+        </Service>
+    </Services>
+</Player>
+
