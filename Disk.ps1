@@ -35,13 +35,13 @@ $xmlWriter.WriteEndElement()
 $xmlWriter.WriteStartElement("Volumes")
 $volumes = Get-Volume
 foreach ($volume in $volumes){
-    
+    if(!($volume.DriveLetter -eq "")){
         $xmlWriter.WriteStartElement("Volume")
         $xmlWriter.WriteAttributeString("Label",$volume.DriveLetter)
             $xmlWriter.WriteElementString("Name",$volume.DriveLetter)
             $xmlWriter.WriteElementString("HealthStatus",$volume.HealthStatus)
         $xmlWriter.WriteEndElement()
- 
+    }
 }
 $xmlWriter.WriteEndElement()
 
