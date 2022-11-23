@@ -38,6 +38,21 @@ BeforeDiscovery{
     $disk.Load(".\disk.xml")
 }
 
+Describe "Check volumes" {
+    Context "Checkin volumes" {
+        BeforeAll{
+            $name = $disk.Player.Volumes.Volume
+            $status = $disk.Player.Volumes.Status
+        }
+        It "<_> volume should be healthy" -ForEach $name {
+            $i = 0
+            $status[$i] | Should -Be "Healthy"
+            $i++
+        }
+    }
+}
+
+
 
 Describe "Check Disk and Volumes status"{
     Context "Checking disk status be healthy" {
