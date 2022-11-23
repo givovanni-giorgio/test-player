@@ -5,7 +5,7 @@
 #Load services.xml
 BeforeDiscovery{
     $services = New-Object -TypeName XML
-    $services.Load("C:\Users\rpawlowski\Documents\Power Shell\test-player\services.xml")
+    $services.Load(".\services.xml")
     $services           =  $xml.Player.Services.Service.Name
     $servicesStatusUp   = ($xml.Player.Services.Service | Where-Object {$_.Status -eq "Running"} | Select-Object Name -ExpandProperty Name)
     $servicesStatusDown = ($xml.Player.Services.Service | Where-Object {$_.Status -eq "Stopped"} | Select-Object Name -ExpandProperty Name)
@@ -31,25 +31,27 @@ BeforeDiscovery {
 
 }
 
+BeforeDiscovery{
+    .\Disk.ps1
+    Start-Sleep -Seconds 1
+    $disk       = New-Object -TypeName XML
+    $disk.Load(".\disk.xml")
+}
+
+
 Describe "Check Disk and Volumes status"{
-    Context "Checking disk status  " {
+    Context "Checking disk status be healthy" {
         BeforeAll{
-            .\Disk.ps1
-            Start-Sleep -Seconds 1
-            $disk       = New-Object -TypeName XML
-            $disk.Load(".\disk.xml")
-            $name       = $disk.Player.Disks.Disk.Name
-            $status     = $disk.Player.Disks.Disk.Status
+            [array]$name       = $disk.Player.Disks.Disk.Name
+            [array]$status     = $disk.Player.Disks.Disk.HealthStatus
         }
-        It "Check <_> state" -ForEach $name {
+        It "Check <_> state should be healthy" -ForEach $name {
             $i=0
             $status[$i] | Should -Be "Healthy"
             $i++
         }
     }
 }
-
-
 
 Describe "Check TeamViewer" {
     context "Check TeamViewer service " {
@@ -88,7 +90,7 @@ Describe "Test servers." {
 
 }
 
-    Describe "Check Services"{
+Describe "Check Services" {
 
         Context "Setting up <services> service"  {
             It "<_> Service should be installed" -ForEach $services {

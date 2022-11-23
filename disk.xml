@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xls' href='style.xls'?>
+<Player>
+		<Disks>
+				<Disk Label="WDC PC SN720 SDAQNTW-512G-1001">
+						<Name>WDC PC SN720 SDAQNTW-512G-1001</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Disk>
+		</Disks>
+		<Volumes>
+				<Volume Label="D">
+						<Name>D</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+				<Volume Label="">
+						<Name />
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+				<Volume Label="C">
+						<Name>C</Name>
+						<HealthStatus>Healthy</HealthStatus>
+				</Volume>
+		</Volumes>
+</Player>
