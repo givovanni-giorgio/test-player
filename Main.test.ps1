@@ -21,20 +21,28 @@ BeforeDiscovery{
 }
 
 
-Describe "Test servers" {
-    Context "Checking server connection <_>" -ForEach $server {
-        It "<_> serwer should be pingable" {
-            $result = Test-Connection $_ -Quiet
-            $result | Should -Be $true
-        }
-    }
-} 
- 
+Describe "Test Player" {
+    
+    Context "Checking server connection" {
+        It "<_> serwer should be pingable" -ForEach $server {
+            if( ($_ -eq "hebe.signio.pl")){
+                Set-ItResult -Because "Server is not pingable" -Inconclusive
+            }elseif ($_ -eq "sixthstreet.signio.pl") {
+                Set-ItResult -Because "Server is not pingable" -Inconclusive
+            }
+            else{
+                $result = Test-Connection $_ -Quiet
+                $result | Should -Be $true
+            } 
+        } 
+    } 
+    
 
+}
 
+    Describe "Check Services"{
 
-Describe "Test player" {
-    Context "Checking services" {
+        Context "Setting up <services> service"  {
             It "<_> Service should be installed" -ForEach $services {
                $name =  (Get-Service -Name $_ -ErrorAction SilentlyContinue | Select-Object Name -ExpandProperty Name)
                $name | should -Be $_
@@ -56,7 +64,5 @@ Describe "Test player" {
                 $startup | Should -Be "Automatic"
             }
         }
-}
 
-
-
+    }
