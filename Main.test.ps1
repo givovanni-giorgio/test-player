@@ -20,10 +20,58 @@ BeforeDiscovery{
     $server = $Servers.Servers.Server.DomainName
 }
 
+BeforeDiscovery {
 
-Describe "Test Player" {
+    $teamviewer = New-Object -TypeName XML
+    $teamviewer.Load(".\teamviewer.xml")
+    $tvname     = $teamviewer.TeamViewer.Service.Name
+    $tvstatus   = $teamviewer.TeamViewer.Service.Status
+    $tvstartup   = $teamviewer.TeamViewer.Service.StartUPType
+    $tvpath     = $teamviewer.TeamViewer.TeamViewerPath.Path
+
+}
+
+Describe "Check Disk and Volumes status"{
+    Context "Checking disk status  " {
+        BeforeAll{
+            .\Disk.ps1
+            Start-Sleep -Seconds 1
+            $disk       = New-Object -TypeName XML
+            $disk.Load(".\disk.xml")
+            $name       = $disk.Player.Disks.Disk.Name
+            $status     = $disk.Player.Disks.Disk.Status
+        }
+        It "Check <_> state" -ForEach $name {
+            $i=0
+            $status[$i] | Should -Be "Healthy"
+            $i++
+        }
+    }
+}
+
+
+
+Describe "Check TeamViewer" {
+    context "Check TeamViewer service " {
+        BeforeAll{
+            $service = Get-Service -Name $tvname
+        }
+        It "Service should be running" {
+            $service.Name | Should -Be $tvname
+        }
+        It "StartUp type should be set to Automatic" {
+            $service.StartType | Should -Be $tvstartup
+        }
+        It "TeamViewer should be on disk C:" {
+            $result = Get-ChildItem -Path $tvPath -Name "*$($tvname)*"
+        }
+    }
+}
+
+
+Describe "Test servers." {
     
-    Context "Checking server connection" {
+    Context "Checking server connection." {
         It "<_> serwer should be pingable" -ForEach $server {
             if( ($_ -eq "hebe.signio.pl")){
                 Set-ItResult -Because "Server is not pingable" -Inconclusive
