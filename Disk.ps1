@@ -26,7 +26,6 @@ foreach ($disk in $disks){
             $xmlWriter.WriteElementString("Name","$($disk.FriendlyName)")
             $xmlWriter.WriteElementString("HealthStatus",$($disk.HealthStatus))
         $xmlWriter.WriteEndElement()
-    
 }
 $xmlWriter.WriteEndElement()
 
